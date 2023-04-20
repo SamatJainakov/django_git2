@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from .models import Order, Courier
 
-# Create your views here.
+
+def order_list(request):
+    order = Order.objects.all()
+    return HttpResponse(order)
+
+
+def courier_list(request):
+    couriers = Courier.objects.all()
+    return HttpResponse(couriers)
