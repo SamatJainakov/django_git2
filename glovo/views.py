@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from .models import Courier
 
-# Create your views here.
+
+def courier_list(request):
+    couriers = Courier.objects.all()
+    return HttpResponse(couriers)
